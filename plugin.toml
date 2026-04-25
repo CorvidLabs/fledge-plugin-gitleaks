@@ -1,24 +1,15 @@
 [plugin]
 name = "fledge-plugin-secrets"
 version = "0.1.0"
-description = "A fledge plugin"
+description = "Scan your repo for committed secrets via gitleaks. Built in Rust."
 author = "0xLeif"
 license = "MIT"
 
 [[commands]]
-name = "myplugin"
-description = "A fledge plugin"
-# Update this path to match your build output:
-#   Rust: target/release/fledge-myplugin
-#   Bun:  dist/fledge-myplugin
-#   Go:   ./fledge-myplugin
-#   Python (via uv tool): bin/fledge-myplugin
-binary = "bin/fledge-myplugin"
+name = "secrets"
+description = "Scan your repo for committed secrets, install a pre-commit hook"
+binary = "target/release/fledge-secrets"
 
-# Capabilities the plugin needs at runtime. Default to false; turn on only what you use.
-# - exec: shell out to commands in the host project
-# - store: persist key/value state across runs (in $FLEDGE_PLUGIN_DIR)
-# - metadata: read fledge.toml / git state / env from the host project
 [capabilities]
 exec = false
 store = false

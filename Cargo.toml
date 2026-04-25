@@ -1,0 +1,24 @@
+[package]
+name = "fledge-plugin-secrets"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+description = "Scan your repo for committed secrets via gitleaks."
+license = "MIT"
+authors = ["0xLeif"]
+repository = "https://github.com/CorvidLabs/fledge-plugin-secrets"
+
+[[bin]]
+name = "fledge-secrets"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+strip = true
+lto = "thin"
+codegen-units = 1
