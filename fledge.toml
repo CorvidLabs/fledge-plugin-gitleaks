@@ -1,0 +1,15 @@
+# fledge.toml — project task definitions
+# Add tasks for whichever language stack you adopt. Examples:
+#
+# [tasks]
+# build = "cargo build --release"           # Rust
+# test  = "cargo test"
+# lint  = "cargo clippy -- -D warnings"
+#
+# build = "bun build src/index.ts --outfile dist/fledge-myplugin"  # Bun
+# test  = "bun test"
+#
+# build = "go build -o fledge-myplugin ./..."   # Go
+# test  = "go test ./..."
+
+[tasks]

@@ -1,0 +1,26 @@
+[source]
+template = "fledge-plugin"
+fledge_version = "0.15.3"
+created = "2026-04-25"
+
+[variables]
+author = "0xLeif"
+command_name = "myplugin"
+date = "2026-04-25"
+description = "A fledge plugin"
+github_org = "CorvidLabs"
+license = "MIT"
+project_name = "fledge-plugin-secrets"
+project_name_camel = "fledgePluginSecrets"
+project_name_kebab = "fledge-plugin-secrets"
+project_name_pascal = "FledgePluginSecrets"
+project_name_snake = "fledge_plugin_secrets"
+year = "2026"
+
+[files]
+".gitignore" = "96d5fe59f6087d81fe60f2a77f741cf09adcdb800901fb8892eed7572db6f81e"
+"CHANGELOG.md" = "7a6ec46141007c18090a0ff325e2dd68cd51588c4e0b5af7b580365e5eaaca85"
+LICENSE = "2575ff28cb04763f17ce392823ce091f734e337369e3138a6b9b588c4816f2a1"
+"README.md" = "a41fb12e90e6f4803788261a1787fadd89253212cfc76a7e18c25c7dade44dcd"
+"fledge.toml" = "d5df4fe37d04701b31012e3a0e19e4e313a1778423fffe0cda524a37f5dc47d6"
+"plugin.toml" = "4a3bcbf5c1902acaaf023e5c91472b7f21b57f78b40b9e4442088dc884a8c0b7"
