@@ -7,7 +7,7 @@ use std::process::{Command, ExitCode};
 
 #[derive(Parser)]
 #[command(
-    name = "fledge-secrets",
+    name = "fledge-gitleaks",
     version,
     about = "Scan your repo for committed secrets via gitleaks"
 )]
@@ -29,7 +29,7 @@ enum Sub {
         #[arg(long)]
         staged: bool,
     },
-    /// Install a pre-commit hook that runs `secrets check --staged`
+    /// Install a pre-commit hook that runs `gitleaks check --staged`
     InstallHook,
     /// Remove the fledge-installed pre-commit hook
     UninstallHook,
@@ -90,7 +90,7 @@ fn run_scan(staged: bool, strict: bool) -> Result<bool> {
     println!("  using gitleaks {version}");
 
     let report_path = std::env::temp_dir().join(format!(
-        "fledge-secrets-{}-{}.json",
+        "fledge-gitleaks-{}-{}.json",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -183,10 +183,10 @@ fn require_gitleaks() -> Result<String> {
     Ok(String::from_utf8_lossy(&output.stdout).trim().to_string())
 }
 
-const HOOK_MARKER: &str = "# fledge-plugin-secrets managed hook";
+const HOOK_MARKER: &str = "# fledge-plugin-gitleaks managed hook";
 const HOOK_BODY: &str = r#"#!/bin/sh
-# fledge-plugin-secrets managed hook
-exec fledge secrets check --staged
+# fledge-plugin-gitleaks managed hook
+exec fledge gitleaks check --staged
 "#;
 
 fn hook_path() -> Result<PathBuf> {
@@ -218,7 +218,7 @@ fn install_hook() -> Result<()> {
         }
         bail!(
             "A pre-commit hook already exists at {} and was not installed by fledge.\n  \
-             Inspect it and either remove it or add `exec fledge secrets check --staged` manually.",
+             Inspect it and either remove it or add `exec fledge gitleaks check --staged` manually.",
             path.display()
         );
     }

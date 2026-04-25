@@ -1,15 +1,15 @@
 [package]
-name = "fledge-plugin-secrets"
+name = "fledge-plugin-gitleaks"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.89"
-description = "Scan your repo for committed secrets via gitleaks."
+description = "Scan your repo for committed secrets via gitleaks, with a one-command pre-commit hook installer."
 license = "MIT"
 authors = ["0xLeif"]
-repository = "https://github.com/CorvidLabs/fledge-plugin-secrets"
+repository = "https://github.com/CorvidLabs/fledge-plugin-gitleaks"
 
 [[bin]]
-name = "fledge-secrets"
+name = "fledge-gitleaks"
 path = "src/main.rs"
 
 [dependencies]

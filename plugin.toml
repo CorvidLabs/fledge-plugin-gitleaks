@@ -1,14 +1,14 @@
 [plugin]
-name = "fledge-plugin-secrets"
+name = "fledge-plugin-gitleaks"
 version = "0.1.0"
-description = "Scan your repo for committed secrets via gitleaks. Built in Rust."
+description = "Scan your repo for committed secrets via gitleaks, with a one-command pre-commit hook installer. Built in Rust."
 author = "0xLeif"
 license = "MIT"
 
 [[commands]]
-name = "secrets"
-description = "Scan your repo for committed secrets, install a pre-commit hook"
-binary = "target/release/fledge-secrets"
+name = "gitleaks"
+description = "Scan with gitleaks; install a pre-commit hook"
+binary = "target/release/fledge-gitleaks"
 
 [capabilities]
 exec = false
