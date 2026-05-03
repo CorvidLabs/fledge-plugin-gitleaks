@@ -85,7 +85,11 @@ fn run_scan(staged: bool, strict: bool) -> Result<bool> {
     let version = require_gitleaks()?;
 
     let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
-    let mode = if staged { "staged changes" } else { "working tree" };
+    let mode = if staged {
+        "staged changes"
+    } else {
+        "working tree"
+    };
     println!("scanning {} in {}", mode, cwd.display());
     println!("  using gitleaks {version}");
 
@@ -161,7 +165,12 @@ fn print_findings(findings: &[Finding], strict: bool) {
         let location = if f.commit.is_empty() {
             format!("{}:{}", f.file, f.start_line)
         } else {
-            format!("{}:{} ({})", f.file, f.start_line, &f.commit[..7.min(f.commit.len())])
+            format!(
+                "{}:{} ({})",
+                f.file,
+                f.start_line,
+                &f.commit[..7.min(f.commit.len())]
+            )
         };
         println!("  - [{}] {}", f.rule_id, location);
         println!("      {}", f.description);
@@ -250,7 +259,9 @@ fn uninstall_hook() -> Result<()> {
 #[cfg(unix)]
 fn make_executable(path: &Path) -> Result<()> {
     use std::os::unix::fs::PermissionsExt;
-    let mut perms = fs::metadata(path).context("reading hook permissions")?.permissions();
+    let mut perms = fs::metadata(path)
+        .context("reading hook permissions")?
+        .permissions();
     perms.set_mode(0o755);
     fs::set_permissions(path, perms).context("setting hook permissions")?;
     Ok(())
