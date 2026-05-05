@@ -1,5 +1,7 @@
 # fledge-plugin-gitleaks
 
+[![CI](https://github.com/CorvidLabs/fledge-plugin-gitleaks/actions/workflows/ci.yml/badge.svg)](https://github.com/CorvidLabs/fledge-plugin-gitleaks/actions/workflows/ci.yml)
+
 A thin fledge wrapper around [`gitleaks`](https://github.com/gitleaks/gitleaks) — pretty-printed scans + a one-command pre-commit hook installer.
 
 A plugin for [fledge](https://github.com/CorvidLabs/fledge).
@@ -8,11 +10,13 @@ A plugin for [fledge](https://github.com/CorvidLabs/fledge).
 
 ## Prerequisites
 
-Install gitleaks:
+- [fledge](https://github.com/CorvidLabs/fledge) installed and available in your PATH
+- [gitleaks](https://github.com/gitleaks/gitleaks) installed:
 
 ```bash
 brew install gitleaks               # macOS
-# or: https://github.com/gitleaks/gitleaks/releases
+sudo apt-get install gitleaks       # Debian/Ubuntu (if available)
+# or grab a binary: https://github.com/gitleaks/gitleaks/releases
 ```
 
 ## Install
@@ -31,7 +35,28 @@ fledge gitleaks install-hook       # install a pre-commit hook calling `check --
 fledge gitleaks uninstall-hook     # remove the pre-commit hook
 ```
 
+### CI Integration
+
+Use `fledge gitleaks check` in your CI pipeline. It exits non-zero when secrets are detected:
+
+```yaml
+- run: fledge gitleaks check
+```
+
+### Configuration
+
 The plugin honors any `.gitleaks.toml` you have in the repo. To allowlist false positives, edit that file (see [gitleaks docs](https://github.com/gitleaks/gitleaks#configuration)).
+
+## Development
+
+```bash
+cargo build --release
+cargo test
+cargo clippy -- -D warnings
+cargo fmt --check
+```
+
+The built binary lives at `target/release/fledge-gitleaks`.
 
 ## License
 

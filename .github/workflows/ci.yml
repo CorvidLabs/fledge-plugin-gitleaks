@@ -34,3 +34,33 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: cargo clippy -- -D warnings
       - run: cargo fmt --check
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck on all .sh files
+        run: |
+          if compgen -G "**/*.sh" > /dev/null 2>&1 || find . -name '*.sh' | grep -q .; then
+            find . -name '*.sh' -not -path './.git/*' -print0 | xargs -0 shellcheck
+          else
+            echo "No .sh files found — skipping."
+          fi
+
+  smoke:
+    name: Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --release
+      - name: Verify binary starts
+        run: ./target/release/fledge-gitleaks --help
+      - name: Verify subcommands are accessible
+        run: |
+          ./target/release/fledge-gitleaks scan --help
+          ./target/release/fledge-gitleaks check --help
+          ./target/release/fledge-gitleaks install-hook --help
+          ./target/release/fledge-gitleaks uninstall-hook --help
