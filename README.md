@@ -6,7 +6,7 @@ A thin fledge wrapper around [`gitleaks`](https://github.com/gitleaks/gitleaks) 
 
 A plugin for [fledge](https://github.com/CorvidLabs/fledge).
 
-> Looking for a self-contained Kotlin scanner with built-in pattern catalog and entropy detection? See [`CorvidLabs/fledge-plugin-secrets`](https://github.com/CorvidLabs/fledge-plugin-secrets). This plugin is the gitleaks-backed alternative — pick whichever fits your stack.
+> The earlier Kotlin scanner [`CorvidLabs/fledge-plugin-secrets`](https://github.com/CorvidLabs/fledge-plugin-secrets) is now archived; this gitleaks-backed plugin is its successor.
 
 ## Prerequisites
 
