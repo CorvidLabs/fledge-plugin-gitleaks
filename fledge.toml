@@ -4,3 +4,8 @@ build = "cargo build --release"
 test = "cargo test"
 lint = "cargo clippy -- -D warnings"
 fmt = "cargo fmt --check"
+smoke = "cargo build --release && ./target/release/fledge-gitleaks --help"
+
+[lanes.verify]
+description = "Format, lint, test, build, and smoke-test the Gitleaks plugin"
+steps = ["fmt", "lint", "test", "smoke"]
