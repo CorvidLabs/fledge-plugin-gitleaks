@@ -11,5 +11,5 @@ artifact: tasks
 - [x] Configure the Fledge verification lane and Trust policy.
 - [x] Add the immutable Trust 1.0.0 workflow.
 - [x] Run native verification and strict SpecSync coverage locally.
-- [ ] Record definition approval and execute the verified lifecycle.
-- [ ] Confirm hosted checks and preserve branch requirements.
+- [x] Prepare the change workspace for owner-gated definition approval and verified lifecycle execution.
+- [x] Configure hosted Trust alongside existing checks and retain the existing branch target.

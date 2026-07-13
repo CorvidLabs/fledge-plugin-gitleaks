@@ -8,6 +8,7 @@ artifact: testing
 Local acceptance requires:
 
 - `fledge lanes run verify`
+- `REQ-gitleaks-002` evidence is provided by the native verification lane and existing CI checks.
 - `specsync check --strict --require-coverage 100 --force`
 - `specsync agents status`
 - `fledge trust doctor`
