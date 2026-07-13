@@ -13,6 +13,51 @@
       "timestamp": 1783954149,
       "digest": "4741795c0616d7aa414be4a932feb7987e5debf80d4397e34787bbd63cce531e",
       "note": "Closing approval recorded after successful committed-head native verification with explicit requirement evidence."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984313,
+      "digest": "c1ba5820419f440e7d04c0fb972ce3d136d73b78678288f6b45a586cd7f4a9c3",
+      "note": "Fresh native verification passed with CHG-0002 present; the previously applied canonical delta was not replayed. Hosted CI remains required before promotion."
+    }
+  ],
+  "reopenings": [
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-gitleaks-fledge-plugin",
+      "actor": "user:0xLeif",
+      "reason": "CHG-0002 corrected the shared migration contract, verification lane, and governed agent inputs after the prior acceptance evidence.",
+      "timestamp": 1783984311,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1783954149,
+        "digest": "4741795c0616d7aa414be4a932feb7987e5debf80d4397e34787bbd63cce531e",
+        "note": "Closing approval recorded after successful committed-head native verification with explicit requirement evidence."
+      },
+      "prior_verification": {
+        "timestamp": 1783954064,
+        "commit": "29d768ec824ca1f259385b7f3cdc0b9ec617ca77",
+        "contract_digest": "056a4131aed716912c6ea25b7d632114abde1c861f473db1ed190ae7c15be7f3",
+        "workspace_digest": "acdd90eaef375f1210db01fc38970d15eaded0567e0f5e11f49437fb5912fade",
+        "acceptance_input_digest": "fbb0446ae7259e20ab80a9a1f99661cfe98e086e5a21edf2ba311941668c48a9",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": [
+          "REQ-gitleaks-002"
+        ]
+      },
+      "stale_acceptance_input_digest": "fbb0446ae7259e20ab80a9a1f99661cfe98e086e5a21edf2ba311941668c48a9",
+      "current_acceptance_input_digest": "f5e42793241bccf9d8e263b00f932e2bf3f6e59bf0db6ed9e76a67f3a7a17389"
     }
   ]
 }

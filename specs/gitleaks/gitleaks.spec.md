@@ -1,6 +1,6 @@
 ---
 module: gitleaks
-version: 2
+version: 3
 status: active
 files:
   - src/main.rs
@@ -13,7 +13,7 @@ depends_on: []
 
 ## Purpose
 
-Wrap the installed gitleaks binary for working-tree and staged secret scanning, provide human/CI result modes, and install or remove a managed pre-commit invocation without destroying unrelated hook content.
+Wrap the installed gitleaks binary for working-tree and staged secret scanning, provide human/CI result modes, and install or remove a marker-owned pre-commit hook without overwriting an unmanaged existing hook.
 
 ## Public API
 
@@ -21,25 +21,25 @@ Wrap the installed gitleaks binary for working-tree and staged secret scanning, 
 |---------|----------|
 | scan | Run gitleaks against the working tree or staged changes and pretty-print findings. |
 | check | Run CI-style detection and return non-zero when secrets are found or scanning fails. |
-| install-hook | Add the managed staged-check invocation to the repository pre-commit hook. |
-| uninstall-hook | Remove only the plugin-managed hook content and preserve unrelated commands. |
+| install-hook | Create the managed staged-check pre-commit hook, or refuse an unmanaged existing hook. |
+| uninstall-hook | Remove the complete marker-bearing managed hook, or refuse an unmanaged hook. |
 
 ## Invariants
 
 1. The plugin delegates secret detection and `.gitleaks.toml` semantics to the installed gitleaks binary.
 2. Staged mode scans only staged changes and is the mode installed into pre-commit.
 3. Check exits non-zero when findings exist or gitleaks cannot complete successfully.
-4. Hook installation is idempotent and does not duplicate the managed invocation.
-5. Hook removal deletes only managed content and retains unrelated user hook commands.
-6. Hook files remain executable after installation or partial removal.
+4. Hook installation is idempotent for a marker-bearing hook and refuses to overwrite an unmanaged existing hook.
+5. Hook removal deletes the complete marker-bearing hook and refuses to delete a hook without the managed marker.
+6. A newly installed hook is executable on Unix platforms.
 7. Missing gitleaks produces installation guidance rather than a false pass.
 
 ## Behavioral Examples
 
 ```
-Given a pre-commit hook containing user commands
-When install-hook and then uninstall-hook run
-Then the staged gitleaks check is added once and later removed while the user commands remain
+Given a pre-commit hook without the plugin's managed marker
+When install-hook or uninstall-hook runs
+Then the command refuses to overwrite or remove that unmanaged hook
 ```
 
 ## Error Cases
@@ -64,4 +64,5 @@ Then the staged gitleaks check is added once and later removed while the user co
 | Version | Date | Changes |
 |---------|------|---------|
 | 1 | 2026-07-12 | Document existing gitleaks scan, check, and managed-hook behavior for SpecSync 5 adoption. |
-| 2026-07-13 | CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-gitleaks-fledge-plugin: Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for the Gitleaks Fledge plugin |
+| 2 | 2026-07-13 | CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-gitleaks-fledge-plugin: Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for the Gitleaks Fledge plugin |
+| 3 | 2026-07-13 | CHG-0002-correct-the-migration-contract-and-portable-verification-guidance: Correct the migration contract and portable verification guidance |
