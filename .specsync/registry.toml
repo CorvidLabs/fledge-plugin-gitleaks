@@ -1,0 +1,5 @@
+[registry]
+name = "fledge-plugin-gitleaks-trust-wave4"
+
+[specs]
+gitleaks = "specs/gitleaks/gitleaks.spec.md"

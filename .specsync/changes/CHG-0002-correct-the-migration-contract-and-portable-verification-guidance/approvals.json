@@ -1,0 +1,26 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984250,
+      "digest": "4ad61f6fde98ceb8362e18d57a9c71187eff66b633579d219f4bef6592754ee5",
+      "note": "Approved portable definition for the reviewed migration contract and cross-platform governance corrections."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984297,
+      "digest": "76a77ac4f55b351d5e13718050e907a149d2f2a351738bd76a6ec407b0320cdb",
+      "note": "Definition refreshed with explicit direct-source evidence for the corrected existing hook contract."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984311,
+      "digest": "37510169684bb2256b50d83c394183fbdfb1f32c4e1d7c1354578c902d4818a5",
+      "note": "Native formatting, clippy, four Rust tests, release build, platform-neutral help smoke, and direct-source contract evidence passed. Hosted CI remains required before promotion."
+    }
+  ],
+  "reopenings": []
+}

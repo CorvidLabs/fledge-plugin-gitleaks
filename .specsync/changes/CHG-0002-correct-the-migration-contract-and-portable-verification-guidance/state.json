@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0002-correct-the-migration-contract-and-portable-verification-guidance",
+  "slug": "correct-the-migration-contract-and-portable-verification-guidance",
+  "title": "Correct the migration contract and portable verification guidance",
+  "description": "Correct the migration contract and portable verification guidance",
+  "kind": "bug_fix",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "7128abdcc34663554453babc14ca28e748223903",
+  "created_at": 1783984097,
+  "updated_at": 1783984311,
+  "affected_specs": [
+    "gitleaks"
+  ],
+  "affected_paths": [
+    "specs/gitleaks/gitleaks.spec.md",
+    "specs/gitleaks/requirements.md",
+    "fledge.toml",
+    ".specsync/sdd.json",
+    ".claude/commands/specsync/create-spec.md",
+    ".cursor/commands/specsync-create-spec.md",
+    ".gemini/commands/specsync/create-spec.toml",
+    ".gemini/commands/specsync/create-change.toml"
+  ],
+  "no_spec_change": false,
+  "no_spec_change_rationale": null,
+  "acceptance_criteria": [
+    "The canonical hook contract matches the existing marker-based whole-file install and removal behavior without promising partial-content preservation; Claude",
+    "Cursor",
+    "and Gemini correctly preserve full SpecSync input; documentation changes under docs require the SDD lifecycle; the native smoke command is cross-platform; Fledge verification and strict SpecSync 100% coverage pass."
+  ],
+  "selected_artifacts": [
+    "context",
+    "testing",
+    "tasks",
+    "design",
+    "requirements",
+    "docs"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "no",
+    "public_contract": "yes"
+  }
+}

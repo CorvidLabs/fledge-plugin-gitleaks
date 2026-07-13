@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0003-cover-remaining-rollout-governance-files-in-the-sdd-lifecycle",
+  "slug": "cover-remaining-rollout-governance-files-in-the-sdd-lifecycle",
+  "title": "Cover remaining rollout governance files in the SDD lifecycle",
+  "description": "Cover remaining rollout governance files in the SDD lifecycle",
+  "kind": "migration",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "0ae5e3a2cd3f8da88210c4d9dd79749e8223b3b1",
+  "created_at": 1783984414,
+  "updated_at": 1783984462,
+  "affected_specs": [],
+  "affected_paths": [
+    ".attest.json",
+    ".augur.toml",
+    ".claude/commands/specsync/create-change.md",
+    ".claude/skills/spec-sync/SKILL.md",
+    ".cursor/commands/specsync-create-change.md",
+    ".cursor/skills/spec-sync/SKILL.md",
+    ".gemini/skills/spec-sync/SKILL.md"
+  ],
+  "no_spec_change": true,
+  "no_spec_change_rationale": "Declare the already-migrated Attest, Augur, and generated agent governance files as delivery inputs so the pull-request range is fully covered without changing Gitleaks requirements or Rust behavior.",
+  "acceptance_criteria": [
+    "SpecSync recognizes the Attest",
+    "Augur",
+    "Claude",
+    "Cursor",
+    "and Gemini rollout files as covered delivery inputs; strict validation retains real 1/1 file and 326/326 LOC coverage; the native Fledge lane and hosted Trust contract gate pass."
+  ],
+  "selected_artifacts": [
+    "context",
+    "research",
+    "design",
+    "plan",
+    "tasks",
+    "testing",
+    "docs"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "no",
+    "public_contract": "no"
+  }
+}

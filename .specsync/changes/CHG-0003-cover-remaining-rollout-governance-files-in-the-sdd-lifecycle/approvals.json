@@ -1,0 +1,19 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984456,
+      "digest": "bef7e7dec72a646e00b46f9ef9ba17afa9c00ab43495adbc534b012b14175230",
+      "note": "Approved portable no-spec definition for the exact rollout governance paths reported by hosted SpecSync."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984462,
+      "digest": "405a81b79a0e6d0bd2bf0eba1dbc3e9de11b21a843b5e297c0cf6c1ec76d3788",
+      "note": "Native verification passed for the exact rollout path coverage; hosted CI remains required before promotion and is not claimed here."
+    }
+  ],
+  "reopenings": []
+}

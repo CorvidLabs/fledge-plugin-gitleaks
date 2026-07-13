@@ -1,0 +1,18 @@
+{
+  "timestamp": 1783984299,
+  "commit": "7128abdcc34663554453babc14ca28e748223903",
+  "contract_digest": "76a77ac4f55b351d5e13718050e907a149d2f2a351738bd76a6ec407b0320cdb",
+  "workspace_digest": "272f90a396191457e414a664d6d439b29d210de7058ff12d3784e67515f977d3",
+  "acceptance_input_digest": "915b72b61b285ebadaeb05105a73023c44d3db13d40fa70b6eaa74802cb57b6b",
+  "passed": true,
+  "commands": [
+    {
+      "command": "fledge lanes run verify",
+      "success": true,
+      "exit_code": 0
+    }
+  ],
+  "requirement_ids": [
+    "REQ-gitleaks-004"
+  ]
+}
