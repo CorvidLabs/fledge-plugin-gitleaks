@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-gitleaks-fledge-plugin
-state: implementing
+state: accepted
 type: migration
 base_commit: 00dc3be8e8fcc0a0702d8cfc6fdcc9edd953eca8
 ---

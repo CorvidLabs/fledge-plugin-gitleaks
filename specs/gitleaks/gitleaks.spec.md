@@ -1,6 +1,6 @@
 ---
 module: gitleaks
-version: 1
+version: 2
 status: active
 files:
   - src/main.rs
@@ -64,3 +64,4 @@ Then the staged gitleaks check is added once and later removed while the user co
 | Version | Date | Changes |
 |---------|------|---------|
 | 1 | 2026-07-12 | Document existing gitleaks scan, check, and managed-hook behavior for SpecSync 5 adoption. |
+| 2026-07-13 | CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-the-gitleaks-fledge-plugin: Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for the Gitleaks Fledge plugin |
