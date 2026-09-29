@@ -1,6 +1,6 @@
 ---
 id: CHG-0003-cover-remaining-rollout-governance-files-in-the-sdd-lifecycle
-state: accepted
+state: archived
 type: migration
 base_commit: 0ae5e3a2cd3f8da88210c4d9dd79749e8223b3b1
 ---

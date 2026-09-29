@@ -1,6 +1,6 @@
 ---
 id: CHG-0002-correct-the-migration-contract-and-portable-verification-guidance
-state: accepted
+state: archived
 type: bug_fix
 base_commit: 7128abdcc34663554453babc14ca28e748223903
 ---
